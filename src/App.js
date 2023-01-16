@@ -1,21 +1,32 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+    createBrowserRouter,
+   Route, 
+    
+   createRoutesFromElements,
+   RouterProvider} from "react-router-dom";
+
+   //layouts
+import RootLayout from "./layouts/RootLayout";
+
+//pages
 import About from "./pages/About";
 import Home from "./pages/Home";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout/>}>
+    <Route index element={ <Home />} />
+    <Route path="about" element={ <About />} />
+    
+  </Route>
+  )
+)
+
 function App() {
   return (
-   <BrowserRouter>
    
-    <main>
-      <Routes>
-        <Route path="/" element={ <Home />} />
-        <Route path="about" element={ <About />} />
-        
-      </Routes>
-    </main>
-   
-   
-   </BrowserRouter>
+   <RouterProvider router={router} />
+  
   );
 }
 
