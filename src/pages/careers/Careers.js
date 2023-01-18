@@ -17,7 +17,7 @@ export default function Careers() {
 
 // data loader
 export const careersLoader = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/userss')
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
 
   if(!res.ok){
     throw Error('Could not fetch that data')
