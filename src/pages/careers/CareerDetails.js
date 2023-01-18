@@ -24,5 +24,9 @@ export const careerDetailsLoader = async ({params}) =>{
 const { id } = params
 const res = await fetch('https://jsonplaceholder.typicode.com/users/' + id)
 
+if(!res.ok){
+  throw Error('Could not find that data')
+}
+
 return res.json()
 }
